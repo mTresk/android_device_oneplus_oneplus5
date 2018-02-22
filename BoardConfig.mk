@@ -209,6 +209,7 @@ WIFI_DRIVER_MODULE_ARG           := ""
 WIFI_DRIVER_BUILT                := qca_cld3
 WIFI_DRIVER_DEFAULT              := qca_cld3
 #WIFI_HIDL_FEATURE_AWARE          := true
+#WIFI_DRIVER_LOAD_DELAY           := true
 
 CONFIG_ACS := true
 CONFIG_IEEE80211AC := true

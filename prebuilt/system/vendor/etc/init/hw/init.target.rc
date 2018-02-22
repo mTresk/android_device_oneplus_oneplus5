@@ -132,10 +132,13 @@ on boot
    setprop wifi.interface wlan0
    insmod /system/lib/modules/wlan.ko
    chown wifi wifi /sys/module/wlan/parameters/fwpath
-   setprop wlan.driver.status "ok"
+   # will be set later
+   #setprop wlan.driver.status "ok"
    # default country code
    setprop ro.boot.wificountrycode 00
-
+   on zygote-start
+   # Trigger WLAN driver load
+   write /sys/kernel/boot_wlan/boot_wlan 1
 #Peripheral manager
 service per_mgr /system/vendor/bin/pm-service
     class core
