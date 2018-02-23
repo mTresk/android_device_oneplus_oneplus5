@@ -79,10 +79,6 @@ on post-fs-data
     mkdir /data/vendor/hbtp 0750 system system
     mkdir /data/misc/qvr 0770 system system
 
-on zygote-start
-    # Trigger WLAN driver load
-    write /sys/kernel/boot_wlan/boot_wlan 1
-
 # For cpusets initialize for Silver Only first and then Silver + Gold
 # Silver Only configuration cannot work with 0-7
 on boot
@@ -134,10 +130,10 @@ on boot
 
    # Load WLAN driver, to satisfy wificond
    setprop wifi.interface wlan0
-
-   # Wifi firmware reload path
+   insmod /system/lib/modules/wlan.ko
    chown wifi wifi /sys/module/wlan/parameters/fwpath
-
+   # will be set later
+   #setprop wlan.driver.status "ok"
    # default country code
    setprop ro.boot.wificountrycode 00
 
