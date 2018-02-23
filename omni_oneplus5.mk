@@ -52,7 +52,7 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service
 
 # Discard inherited values and use our own instead.
-PRODUCT_NAME := pixeladdict_oneplus5
+PRODUCT_NAME := omni_oneplus5
 PRODUCT_DEVICE := oneplus5
 PRODUCT_BRAND := OnePlus
 PRODUCT_MANUFACTURER := OnePlus
