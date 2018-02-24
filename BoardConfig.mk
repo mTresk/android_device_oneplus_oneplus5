@@ -203,9 +203,6 @@ BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_AP           := "ap"
 WIFI_DRIVER_FW_PATH_P2P          := "p2p"
-#WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wlan.ko"
-#WIFI_DRIVER_MODULE_NAME          := "wlan"
-#WIFI_DRIVER_MODULE_ARG           := ""
 WIFI_DRIVER_BUILT                := qca_cld3
 WIFI_DRIVER_DEFAULT              := qca_cld3
 #WIFI_HIDL_FEATURE_AWARE          := true
@@ -267,8 +264,9 @@ include vendor/omni/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(BOARD_PATH)/sepolicy/vendor
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(BOARD_PATH)/sepolicy/public
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(BOARD_PATH)/sepolicy/private
-
 BOARD_SECCOMP_POLICY += $(BOARD_PATH)/seccomp
+
+WIFI_DRIVER_OPERSTATE_PATH := "/sys/class/net/wlan0/operstate"
 
 # for offmode charging
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
