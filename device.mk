@@ -196,9 +196,12 @@ PRODUCT_PACKAGES += \
     com.nxp.nfc.nq \
     com.nxp.nfc.nq.xml \
     libnqnfc-nci \
-    nfc_nci.nqx.default \
+    libnqnfc_nci_jnia \
+    nfc_nci.msm8998 \
+    NfcNci \
     libp61-jcop-kit \
     NQNfcNci \
+    nqnfcinfo \
     nqnfcee_access.xml \
     nqnfcse_access.xml \
     Tag
