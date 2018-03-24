@@ -280,7 +280,8 @@ PRODUCT_PACKAGES += \
     PresencePolling
 
 PRODUCT_BOOT_JARS += \
-    tcmiface
+    tcmiface \
+    WfdCommon
 
 # Sensors
 #PRODUCT_PACKAGES += \
