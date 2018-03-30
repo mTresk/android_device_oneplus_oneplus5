@@ -27,8 +27,9 @@ def InstallImage(img_name, img_file, partition, info):
   common.ZipWriteStr(info.output_zip, "firmware/" + img_name, img_file)
   info.script.AppendExtra(('package_extract_file("' + "firmware/" + img_name + '", "/dev/block/bootdevice/by-name/' + partition + '");'))
 
-image_partitions_common = {
+image_partitions = {
    'NON-HLOS.bin'      : 'modem',
+   'static_nvbk.bin'   : 'oem_stanvbk',
    'rpm.mbn'           : 'rpm',
    'pmic.elf'          : 'pmic',
    'tz.mbn'            : 'tz',
@@ -42,40 +43,24 @@ image_partitions_common = {
    'adspso.bin'        : 'dsp'
 }
 
-image_partitions_op5 = {
-   'static_nvbk.bin'   : 'oem_stanvbk'
-}
-
-image_partitions_op5t = {
-   'logo.bin'          : 'logo'
-}
-
-
 def FullOTA_InstallEnd(info):
   info.script.Print("Writing recommended firmware...")
-
-  image_partitions_op5.update(image_partitions_common);
-  image_partitions_op5t.update(image_partitions_common);
-
-  info.script.AppendExtra('if getprop("ro.product.device") == "OnePlus5" then')
-  for k, v in image_partitions_op5.iteritems():
+  for k, v in image_partitions.iteritems():
     try:
-      img_file = info.input_zip.read("firmware/" + k + "-op5")
-      InstallImage(k + "-op5", img_file, v, info)
+      img_file = info.input_zip.read("firmware/" + k)
+      InstallImage(k, img_file, v, info)
     except KeyError:
       print "warning: no " + k + " image in input target_files; not flashing " + k
 
-  info.script.AppendExtra('endif;')
-
-  info.script.AppendExtra('if getprop("ro.product.device") == "OnePlus5T" then')
-  for k, v in image_partitions_op5t.iteritems():
-    try:
-      img_file = info.input_zip.read("firmware/" + k + "-op5t")
-      InstallImage(k + "-op5t", img_file, v, info)
-    except KeyError:
-      print "warning: no " + k + " image in input target_files; not flashing " + k
-
-  info.script.AppendExtra('endif;')
 
 def IncrementalOTA_InstallEnd(info):
-    info.script.Print("Firmware flashing extension is not supported on incremental builds.")
+  for k, v in image_partitions.iteritems():
+    try:
+      source_file = info.source_zip.read("firmware/" + k)
+      target_file = info.target_zip.read("firmware/" + k)
+      if source_file != target_file:
+        InstallImage(k, target_file, v, info)
+      else:
+        print k + " image unchanged; skipping"
+    except KeyError:
+      print "warning: " + k + " image missing from target; aborting: " + k
