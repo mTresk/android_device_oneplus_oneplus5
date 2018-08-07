@@ -315,6 +315,10 @@ PRODUCT_PACKAGES += \
     OnePlusCameraService \
     OnePlusGallery
 
+# Google Camera
+PRODUCT_PACKAGES += \
+    GoogleCameraMod    
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/ooscam/lib/libGNaviData.so:system/lib/libGNaviData.so \
     $(LOCAL_PATH)/prebuilt/ooscam/lib/libGNaviMap.so:system/lib/libGNaviMap.so \
