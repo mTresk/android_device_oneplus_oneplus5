@@ -4,6 +4,8 @@ on init
     mount none /system/lib/modules/msm_11ad_proxy.ko /vendor/lib/modules/msm_11ad_proxy.ko bind
     mount none /dev/null /vendor/overlay/SysuiDarkTheme/SysuiDarkThemeOverlay.apk bind
     mount none /system/lib/libmmcamera_imx371.so /vendor/lib/libmmcamera_imx371.so bind
+    mount none /system/lib/libmmcamera_imx398.so /vendor/lib/libmmcamera_imx398.so bind
+    mount none /system/lib/hw/camera.msm8998.so /vendor/lib/hw/camera.msm8998.so bind
     mount none /system/lib/hw/lights.oneplus5.so /vendor/lib/hw/lights.msm8998.so bind
     mount none /system/lib64/hw/lights.oneplus5.so /vendor/lib64/hw/lights.msm8998.so bind
     mount none /system/lib/hw/power.oneplus5.so /vendor/lib/hw/power.qcom.so bind
