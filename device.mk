@@ -122,12 +122,12 @@ PRODUCT_PACKAGES += \
 ifeq ($(TARGET_DEVICE),oneplus5)
 PRODUCT_COPY_FILES += \
     device/oneplus/oneplus5/prebuilt/camlibs/op5/lib/libmmcamera_imx371.so:system/lib/libmmcamera_imx371.so \
-    device/oneplus/oneplus5/prebuilt/camlibs/op5/lib/libmmcamera_imx371.so:system/lib/libmmcamera_imx398.so \
+    device/oneplus/oneplus5/prebuilt/camlibs/op5/lib/libmmcamera_imx398.so:system/lib/libmmcamera_imx398.so \
     device/oneplus/oneplus5/prebuilt/camlibs/op5/lib/hw/camera.msm8998.so:system/lib/hw/camera.msm8998.so
 else
 PRODUCT_COPY_FILES += \
     device/oneplus/oneplus5/prebuilt/camlibs/op5t/lib/libmmcamera_imx371.so:system/lib/libmmcamera_imx371.so \
-    device/oneplus/oneplus5/prebuilt/camlibs/op5t/lib/libmmcamera_imx371.so:system/lib/libmmcamera_imx398.so \
+    device/oneplus/oneplus5/prebuilt/camlibs/op5t/lib/libmmcamera_imx398.so:system/lib/libmmcamera_imx398.so \
     device/oneplus/oneplus5/prebuilt/camlibs/op5t/lib/hw/camera.msm8998.so:system/lib/hw/camera.msm8998.so
 endif
 
