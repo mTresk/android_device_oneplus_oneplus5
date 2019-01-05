@@ -19,13 +19,16 @@ package org.omnirom.device;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.res.Resources;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v14.preference.PreferenceFragment;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceCategory;
+import android.support.v7.preference.PreferenceManager;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.TwoStatePreference;
 import android.provider.Settings;
@@ -50,18 +53,22 @@ public class DeviceSettings extends PreferenceFragment implements
 
     public static final String KEY_SRGB_SWITCH = "srgb";
     //public static final String KEY_HBM_SWITCH = "hbm";
+    public static final String KEY_HWK_SWITCH = "hwk";
     public static final String KEY_PROXI_SWITCH = "proxi";
     public static final String KEY_DCI_SWITCH = "dci";
     public static final String KEY_NIGHT_SWITCH = "night";
 
     public static final String SLIDER_DEFAULT_VALUE = "2,1,0";
 
+    private static final boolean sIsOnePlus5t = android.os.Build.DEVICE.equals("OnePlus5T");
+
     private VibratorStrengthPreference mVibratorStrength;
     private ListPreference mSliderModeTop;
     private ListPreference mSliderModeCenter;
     private ListPreference mSliderModeBottom;
-    //private static TwoStatePreference mHBMModeSwitch;
+    private static TwoStatePreference mHWKSwitch;
     private PreferenceCategory buttonCategory;
+    private static Context mContext;
 
 
     @Override
@@ -94,10 +101,13 @@ public class DeviceSettings extends PreferenceFragment implements
         mSliderModeBottom.setValueIndex(valueIndex);
         mSliderModeBottom.setSummary(mSliderModeBottom.getEntries()[valueIndex]);
 
-        //mHBMModeSwitch = (TwoStatePreference) findPreference(KEY_HBM_SWITCH);
-        //mHBMModeSwitch.setEnabled(HBMModeSwitch.isSupported());
-        //mHBMModeSwitch.setChecked(HBMModeSwitch.isCurrentlyEnabled(this.getContext()));
-        //mHBMModeSwitch.setOnPreferenceChangeListener(new HBMModeSwitch());
+        mHWKSwitch = (TwoStatePreference) findPreference(KEY_HWK_SWITCH);
+        if (!sIsOnePlus5t) {
+            mHWKSwitch.setEnabled(HWKSwitch.isSupported());
+            mHWKSwitch.setOnPreferenceChangeListener(new HWKSwitch());
+        } else {
+            mHWKSwitch.setVisible(false);
+        }
     }
 
     @Override
