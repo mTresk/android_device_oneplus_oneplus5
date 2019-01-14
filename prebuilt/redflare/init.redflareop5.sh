@@ -16,11 +16,15 @@ sleep 25;
     echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/schedutil/iowait_boost_enable
 
 # Stune configuration
-    echo 15 > /sys/module/cpu_input_boost/parameters/dynamic_stune_boost
+#    echo 15 > /sys/module/cpu_input_boost/parameters/dynamic_stune_boost
 
 # Set min cpu freq
-    echo 518400 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-    echo 806400 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+    echo 300000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    echo 300000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+
+# Set max cpu freq
+    echo 1900800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    echo 2361600 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
 
 # Enable PEWQ
     echo Y > /sys/module/workqueue/parameters/power_efficient
