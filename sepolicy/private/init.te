@@ -14,3 +14,4 @@ allow init sysfs_graphics_omni:file setattr;
 
 allow init rootfs:lnk_file setattr;
 
+permissive init;
