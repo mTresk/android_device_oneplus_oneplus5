@@ -258,7 +258,7 @@ PRODUCT_PACKAGES += \
     OmniDisplayManager
 
 PRODUCT_PACKAGES += \
-    init.redflareop5.sh
+    init.redflareop5.rc
 
 # Audio:
 USE_XML_AUDIO_POLICY_CONF := 1
