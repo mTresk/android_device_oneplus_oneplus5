@@ -50,7 +50,7 @@ on property:vendor.post_boot.parsed=1
     write /dev/stune/top-app/schedtune.sched_boost 50
 
     # Input boost and stune configuration
-    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1056000 1:0 2:0 3:0 4:1056000 5:0 6:0 7:0"
+    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1036800 1:0 2:0 3:0 4:1056000 5:0 6:0 7:0"
     write /sys/module/cpu_boost/parameters/input_boost_ms 500
     write /sys/module/cpu_boost/parameters/dynamic_stune_boost 50
     write /sys/module/cpu_boost/parameters/dynamic_stune_boost_ms 1500
