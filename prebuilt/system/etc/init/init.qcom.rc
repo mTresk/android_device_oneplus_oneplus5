@@ -1,4 +1,4 @@
-import /init.redflareop5.rc
+import /init.redflare.rc
 
 on init
     mount none /system/etc/audio_policy_configuration_omni.xml /vendor/etc/audio_policy_configuration.xml bind
