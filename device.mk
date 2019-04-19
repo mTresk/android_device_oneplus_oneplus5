@@ -133,7 +133,7 @@ endif
 
 # ARStickers
 PRODUCT_PACKAGES += \
-    ARStickersMod
+    Playground
 
 # power
 PRODUCT_PACKAGES += \
