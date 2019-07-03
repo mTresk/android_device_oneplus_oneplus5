@@ -35,11 +35,12 @@
   <string name="off_screen_gesture_feedback_summary_head">Включить виброотклик при использовании жестов</string>
   <string name="off_screen_gesture_feedback_title_head">Виброотклик</string>
   <string name="slider_mode_off">Выкл.</string>
+  <string name="slider_mode_flashlight">Фонарик</string>
   <string name="slider_mode_vibrate">Вибрация</string>
   <string name="slider_mode_silent">Без звука</string>
   <string name="slider_mode_priority">Только важные</string>
   <string name="slider_mode_alarm">Только будильники</string>
-  <string name="slider_mode_dnd">Полная тишина</string>
+  <string name="slider_mode_dnd">Не беспокоить</string>
   <string name="slider_mode_title_top">Верхнее положение</string>
   <string name="slider_mode_title_center">Среднее положение</string>
   <string name="slider_mode_title_bottom">Нижнее положение</string>
