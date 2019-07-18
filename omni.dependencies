@@ -41,11 +41,17 @@
     "repository": "android_packages_apps_OmniDisplayManager",
     "target_path": "packages/apps/OmniDisplayManager",
     "revision": "android-9.0"
-  }
+  },
   {
     "remote": "mtresk-gitlab",
     "repository": "android_packages_apps_GoogleCameraModOP5",
     "target_path": "packages/apps/GoogleCameraModOP5",
+    "revision": "android-9.0"
+  },
+  {
+    "remote": "github",
+    "repository": "DonkeyCoyote/android_vendor_qcom_sdclang",
+    "target_path": "vendor/qcom/sdclang",
     "revision": "android-9.0"
   }
 ]
